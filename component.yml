@@ -1,0 +1,19 @@
+version: v2
+
+deployments:
+  appsmith:
+    image: appsmith/appsmith-ce
+    # TODO: Kubernetes provider doesn't support volumes
+    # volumes:
+    #   appsmith_stack:
+    #     mount_path: /appsmith-stacks
+
+
+services:
+  appsmith:
+    deployment: appsmith
+    port: 80
+
+ingresses:
+  appsmith:
+    service: appsmith
